@@ -32,7 +32,7 @@ conda activate DaC_env
 
 ## Dataset
 
-1. Download datasets from https://drive.google.com/drive/folders/1icxbi5_9OvNkr4cG5h7NrY4F01Y7amj0?usp=sharing
+1. Download datasets from Download the dataset from the following link: [MacNoise dataset](https://drive.google.com/drive/folders/1icxbi5_9OvNkr4cG5h7NrY4F01Y7amj0?usp=sharing)
 
 2. Place them under DATA folder
 
@@ -99,8 +99,3 @@ python test_reader.py \
 - eval_data: paths to the evaluation datasets with deterministic perturbation in DATA/Evaluation. The list of possible datasets can be found above.
 - perturb: perturbation probability. It should be one of 0.0, 0.15, 0.25, 0.35. This is to use a pre-made perturbation for deterministic evaluation.
 - model_setting: same as in training
-
-## Dataset
-Download the dataset from the following link: [MacNoise dataset]()
-
-
