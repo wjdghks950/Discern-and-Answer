@@ -1,7 +1,5 @@
 # Discern-and-Answer
 
-The repository will be updated.
-
 **Why So Gullible? Enhancing the Robustness of Retrieval-Augmented Models against Counterfactual Noise** [[Paper](https://arxiv.org/abs/2305.01579)] <br>
 [Giwon Hong*](https://honggiwon.github.io/), [Jeonghwan Kim*](https://wjdghks950.github.io/), [Junmo Kang*](https://jm-kang.github.io/), [Sung-Hyon Myaeng](https://scholar.google.com/citations?user=6pdKebMAAAAJ&hl=ko), [Joyce Jiyoung Whang](https://bdi-lab.kaist.ac.kr/#)
 
@@ -41,11 +39,15 @@ conda activate DaC_env
 3. Training dataset list
 
 - `DATA/corpus/NQ_train_titlemerged_longpre-corpus.json` : The NQ (Natural Questions) train set used for finetuning the FiD model. This dataset is perturbed following the method by Longpre et al. (2021) and includes the top 100 documents per question.
+- `DATA/corpus/NQ_train_titlemerged_chatgpt_top20.json` : The NQ (Natural Questions) train set used for finetuning the FiD model. This dataset is perturbed by our proposed method (MacNoise) and includes the top 20 documents per question.
+- `DATA/corpus/NQ_train_titlemerged_joint_top20.json` : The NQ (Natural Questions) train set used for finetuning the FiD model. This dataset is perturbed following the method by Longpre et al. (2021) and our proposed method (MacNoise), and includes the top 100 documents per question (where top 20 documents have both Longpre & MacNoise perturbation).
 
 4. Evaluation dataset list
 
 - `DATA/corpus/NQ_eval_longpre_dev_256_new_fix.json` : The sampled NQ dev set with 256 instances used to evaluate the finetuned FiD model and GPT 3.5. This dataset is perturbed following the method by Longpre et al. (2021) and includes the top 5 documents per question.
 - `DATA/corpus/NQ_eval_longpre_test_fix.json` : The NQ test set used to evaluate the finetuned FiD model and GPT 3.5. This dataset is perturbed following the method by Longpre et al. (2021) and includes the top 5 documents per question.
+- `DATA/corpus/NQ_eval_gpt4_dev_256_new_fix.json` : The sampled NQ dev set with 256 instances used to evaluate the finetuned FiD model and GPT 3.5. This dataset is perturbed by our proposed method (MacNoise) and includes the top 5 documents per question.
+- `DATA/corpus/TQA_eval_gpt4_dev_256_new_fix.json` : The sampled TQA dev set with 256 instances used to evaluate the finetuned FiD model and GPT 3.5. This dataset is perturbed by our proposed method (MacNoise) and includes the top 5 documents per question.
 
 ## Train
 
@@ -85,7 +87,7 @@ Configure evaluation settings in `Discern-and-Answer/codes/FiD_contra/test_reade
 
 ~~~
 python test_reader.py \
-        --model_path ./checkpoint/nq_base_640k_semi_parametric_disc_p75/checkpoint/best_dev \
+        --model_path checkpoint/nq_base_640k_semi_parametric_disc_p75/checkpoint/step-640001 \
         --eval_data ../DATA/corpus/NQ_eval_longpre_dev_256_new_fix.json \
         --per_gpu_batch_size 1 \
         --n_context 5 \
