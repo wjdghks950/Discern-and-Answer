@@ -1,6 +1,6 @@
 python train_reader.py \
-        --train_data ../../DATA/corpus/train_titlemerged-corpus.json \
-        --eval_data ../../DATA/corpus/dev_titlemerged-corpus.json \
+        --train_data ../../DATA/corpus/NQ_train_titlemerged_longpre-corpus.json \
+        --eval_data ../../DATA/corpus/NQ_dev_titlemerged_longpre-corpus.json \
         --model_size base \
         --per_gpu_batch_size 1 \
         --n_context 50 \
