@@ -1,0 +1,14 @@
+python train_reader.py \
+        --train_data ../../DATA/corpus/train_titlemerged-corpus.json \
+        --eval_data ../../DATA/corpus/dev_titlemerged-corpus.json \
+        --model_size base \
+        --per_gpu_batch_size 1 \
+        --n_context 50 \
+        --total_steps 640000 \
+        --accumulation_steps 64 \
+        --eval_freq 800000 \
+        --save_freq 160000 \
+        --name nq_base_640k_semi_parametric_disc_p75 \
+        --checkpoint_dir checkpoint \
+        --perturb 0.75 \
+        --model_setting semi_parametric_pert #[parametric, semi_parametric, semi_parametric_pert]
