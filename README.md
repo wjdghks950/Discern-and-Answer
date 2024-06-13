@@ -18,6 +18,16 @@ git clone https://github.com/wjdghks950/Discern-and-Answer.git
 cd Discern-and-Answer
 ```
 
+2. Install the conda enviroment
+```bash
+conda env create -f environment.yaml
+```
+
+3. Activate the conda enviroment
+```bash
+conda activate DaC_env
+```
+
 ## Evaluation
 
 
